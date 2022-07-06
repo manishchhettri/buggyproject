@@ -1,21 +1,20 @@
 package com.buggy.car.portals.tests;
 
-import com.buggy.car.portals.pages.BuggyCarsVotePage;
-import com.buggy.car.portals.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.buggy.car.portals.pages.BuggyCarsVotePage;
+import com.buggy.car.portals.pages.LoginPage;
+
 public class BuggyCarsVoteTest extends BuggyTestSetup {
     WebDriver webDriver;
     LoginPage loginPage;
     BuggyCarsVotePage buggyCarsVotePage;
 
-
-
-    @BeforeClass
+	@BeforeClass
     public void setUp(){
        webDriver = brew();
         loginPage = new LoginPage(webDriver);
@@ -41,7 +40,7 @@ public class BuggyCarsVoteTest extends BuggyTestSetup {
         System.out.println(newVoteCount);
         Assert.assertTrue(Integer.parseInt(currentVoteCount)+1 == Integer.parseInt(newVoteCount));
     }
-    @AfterClass
+	@AfterClass
     public void tearDown(){
         if (webDriver !=null) {
             webDriver.quit();

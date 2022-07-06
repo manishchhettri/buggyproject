@@ -1,6 +1,6 @@
 package com.buggy.car.portals.tests;
 
-import com.buggy.car.portals.pages.BuggyCarsRatingPage;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,13 +9,14 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import java.util.List;
+
+import com.buggy.car.portals.pages.BuggyCarsRatingPage;
 
 public class BuggyCarRatingSortTest extends BuggyTestSetup {
     WebDriver webDriver;
     BuggyCarsRatingPage buggyCarsRatingPage;
 
-    @BeforeClass
+	@BeforeClass
     public void setUp(){
         webDriver = brew();
         buggyCarsRatingPage = new BuggyCarsRatingPage(webDriver);
@@ -39,7 +40,7 @@ public class BuggyCarRatingSortTest extends BuggyTestSetup {
         }
     }
 
-    @AfterClass
+	@AfterClass
     public void tearDown() {
         if (webDriver != null) {
             webDriver.quit();

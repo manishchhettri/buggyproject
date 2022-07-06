@@ -1,13 +1,14 @@
 package com.buggy.car.portals.tests;
 
-import com.buggy.car.portals.beans.RegisterBean;
-import com.buggy.car.portals.pages.LoginPage;
-import com.buggy.car.portals.pages.RegisterPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import com.buggy.car.portals.beans.RegisterBean;
+import com.buggy.car.portals.pages.LoginPage;
+import com.buggy.car.portals.pages.RegisterPage;
 
 public class RegisterTest extends BuggyTestSetup {
 
@@ -25,7 +26,7 @@ public class RegisterTest extends BuggyTestSetup {
         registerBean.setConfirmPassword("P@ssw0rd1");
     }
 
-    @BeforeClass
+	@BeforeClass
     public void setUp(){
         webDriver = brew();
         loginPage = new LoginPage(webDriver);
@@ -46,7 +47,7 @@ public class RegisterTest extends BuggyTestSetup {
         Assert.assertTrue(registerPage.validateValidRegister("Registration is successful"), "Register Failed");
     }
 
-    @AfterClass
+	@AfterClass
     public void tearDown() {
         if (webDriver != null) {
             webDriver.quit();

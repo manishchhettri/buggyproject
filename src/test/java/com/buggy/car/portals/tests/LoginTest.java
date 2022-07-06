@@ -1,12 +1,13 @@
 package com.buggy.car.portals.tests;
 
-import com.buggy.car.portals.beans.LoginBean;
-import com.buggy.car.portals.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import com.buggy.car.portals.beans.LoginBean;
+import com.buggy.car.portals.pages.LoginPage;
 
 @Test()
 public class LoginTest extends BuggyTestSetup {
@@ -21,7 +22,7 @@ public class LoginTest extends BuggyTestSetup {
 
     }
 
-    @BeforeClass
+	@BeforeClass
     public void setUp(){
         webDriver = brew();
         loginPage = new LoginPage(webDriver);
@@ -34,6 +35,7 @@ public class LoginTest extends BuggyTestSetup {
         loginPage.setWebLoginTxt(loginBean.getName());
         loginPage.setWebPasswordTxt(loginBean.getPassword());
         loginPage.clickWebLoginBtn();
+        
         Assert.assertTrue(loginPage.validateLoginGreeting("Midhun"), "Invalid login");
     }
 
@@ -64,7 +66,7 @@ public class LoginTest extends BuggyTestSetup {
         loginPage.clickWebLoginBtn();
     }
 
-    @AfterClass
+	@AfterClass
     public void tearDown(){
         if (webDriver !=null) {
             webDriver.quit();
